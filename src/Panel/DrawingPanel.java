@@ -14,7 +14,7 @@ public class DrawingPanel extends JPanel {
 
     private List<RectangleThread> rectangleThreadsList;
     private int startX, startY, endX, endY;
-    private RectangleThread rect1,rect2;
+
     DrawingPanel(){
         rectangleThreadsList = new ArrayList<>();
         this.setPreferredSize(new Dimension(600,600));

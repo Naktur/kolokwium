@@ -8,11 +8,11 @@ public class RectangleThread extends Thread{
     private DrawingPanel drawingPanel;
     private int move=5;
 
+
     public RectangleThread(Rectangle rectangle, DrawingPanel drawingPanel) {
         this.rectangle = rectangle;
         this.drawingPanel = drawingPanel;
     }
-
 
     @Override
     public void run(){
@@ -22,6 +22,7 @@ public class RectangleThread extends Thread{
                 continue;
             }
             else {
+
                 rectangle.y+=move;
             }
 
