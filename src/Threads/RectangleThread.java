@@ -13,12 +13,20 @@ public class RectangleThread extends Thread{
         this.drawingPanel = drawingPanel;
     }
 
+
     @Override
     public void run(){
         while(true){
-            rectangle.y+=move;
-            drawingPanel.repaint();
+            if(rectangle.y+ rectangle.height>=600)
+            {
+                continue;
+            }
+            else {
+                rectangle.y+=move;
+            }
 
+
+            drawingPanel.repaint();
 
             try {
                 Thread.sleep(50);
