@@ -7,6 +7,7 @@ public class RectangleThread extends Thread{
     public Rectangle rectangle;
     private DrawingPanel drawingPanel;
     private int move=5;
+    private boolean running=true;
 
 
     public RectangleThread(Rectangle rectangle, DrawingPanel drawingPanel) {
@@ -16,7 +17,7 @@ public class RectangleThread extends Thread{
 
     @Override
     public void run(){
-        while(true){
+        while(running){
             if(rectangle.y+ rectangle.height>=600)
             {
                 continue;
@@ -30,11 +31,14 @@ public class RectangleThread extends Thread{
             drawingPanel.repaint();
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(40);
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
         }
 
+    }
+    public void stopThread() {
+        running = false;
     }
 }

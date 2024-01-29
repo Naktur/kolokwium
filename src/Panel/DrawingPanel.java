@@ -1,7 +1,7 @@
 package Panel;
 import java.awt.geom.Area;
 import Threads.RectangleThread;
-
+import Threads.CollisionDetectionThread;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -17,6 +17,8 @@ public class DrawingPanel extends JPanel {
 
     DrawingPanel(){
         rectangleThreadsList = new ArrayList<>();
+        CollisionDetectionThread collisionDetectionThread= new CollisionDetectionThread(this, rectangleThreadsList);
+        collisionDetectionThread.start();
         this.setPreferredSize(new Dimension(600,600));
         this.setFocusable(true);
 
@@ -53,8 +55,9 @@ public class DrawingPanel extends JPanel {
                 g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
             }
         }
-
-
-
     }
+
+//    public ArrayList getArrayList(){
+//        return (ArrayList) rectangleThreadsList;
+//    }
 }
